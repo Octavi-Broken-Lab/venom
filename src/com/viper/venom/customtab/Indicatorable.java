@@ -16,8 +16,7 @@
 
 package com.viper.venom.customtab;
 
-import android.support.v4.view.ViewPager;
-
+import	androidx.viewpager.widget.ViewPager;
 public interface Indicatorable {
     interface IconPageAdapter {
         int getIconResId(int position);

@@ -19,7 +19,7 @@ package com.viper.venom.customtab;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.support.v4.view.PagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;

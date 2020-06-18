@@ -17,12 +17,21 @@
 
 package com.viper.venom;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v13.app.FragmentPagerAdapter;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.ViewPager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import android.view.LayoutInflater;
+import android.os.Bundle;
+//import androidx.fragment.app.FragmentManager;
+//import android.support.v4.view.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+//import android.support.v7.app.AppCompatActivity;
+import 	androidx.fragment.app.FragmentPagerAdapter;
+//import android.support.v13.app.FragmentPagerAdapter;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -54,13 +63,12 @@ public class VenomSettings extends SettingsPreferenceFragment {
 
         mIndicator = (IconTitleIndicator) view.findViewById(R.id.tabs);
         mViewpager = (ViewPager) view.findViewById(R.id.viewpager);
-        mViewpager.setAdapter(new MyAdapter(getFragmentManager()));
+        mViewpager.setAdapter(new MyAdapter(fragmentActivity.getSupportFragmentManager()));
         init1();
 
         setHasOptionsMenu(true);
 		return view;
     }
-
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
     }
@@ -72,6 +80,14 @@ public class VenomSettings extends SettingsPreferenceFragment {
         mIndicator.setItemPaddingTop(15);
         mIndicator.setViewPager(mViewpager);
     }
+
+    FragmentActivity fragmentActivity = new FragmentActivity() {
+        @NonNull
+        @Override
+        public FragmentManager getSupportFragmentManager() {
+            return super.getSupportFragmentManager();
+        }
+    };
 
     class MyAdapter extends FragmentPagerAdapter implements Indicatorable.IconPageAdapter {
         String titles[] = getTitles();
@@ -124,7 +140,7 @@ public class VenomSettings extends SettingsPreferenceFragment {
             R.drawable.lockscreen_tab,
             R.drawable.system_tab,
             R.drawable.about_tab};
-			
+
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.VENOM;
