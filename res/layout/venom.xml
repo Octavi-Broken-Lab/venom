@@ -47,14 +47,14 @@
             android:background="@drawable/logobuttonshape"
             android:gravity="center"
             android:paddingTop="8dp"
-            android:text="#Viper"
-            android:textColor="@*android:color/about_text_color_primary"
+            android:text="Pixel+"
+            android:textColor="@color/about_text_color_primary"
             android:textSize="22dp"
             android:textStyle="bold" />
 
     </RelativeLayout>
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -67,6 +67,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:translationY="5dp"
-        android:background="@color/BottomBarBackgroundColor" />
-
+	android:layout_marginTop="5dp"
+        android:background="@drawable/titlebg" />
 </RelativeLayout>
