@@ -18,6 +18,10 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-
-
+    <com.viper.venom.support.preferences.CategoryVenomPreference
+        android:key="gesture_settings"
+        android:icon="@drawable/ic_settings_gestures"
+        android:title="@string/gesture_settings_title"
+        android:summary="@string/gesture_settings_title_summary"
+        android:fragment="com.viper.venom.fragments.GestureSettings" />
 </PreferenceScreen>

@@ -25,13 +25,9 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import android.view.LayoutInflater;
 import android.os.Bundle;
-//import androidx.fragment.app.FragmentManager;
-//import android.support.v4.view.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
-//import android.support.v7.app.AppCompatActivity;
 import 	androidx.fragment.app.FragmentPagerAdapter;
-//import android.support.v13.app.FragmentPagerAdapter;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -63,7 +59,7 @@ public class VenomSettings extends SettingsPreferenceFragment {
 
         mIndicator = (IconTitleIndicator) view.findViewById(R.id.tabs);
         mViewpager = (ViewPager) view.findViewById(R.id.viewpager);
-        mViewpager.setAdapter(new MyAdapter(fragmentActivity.getSupportFragmentManager()));
+        mViewpager.setAdapter(new MyAdapter(getFragmentManager()));
         init1();
 
         setHasOptionsMenu(true);
@@ -80,14 +76,6 @@ public class VenomSettings extends SettingsPreferenceFragment {
         mIndicator.setItemPaddingTop(15);
         mIndicator.setViewPager(mViewpager);
     }
-
-    FragmentActivity fragmentActivity = new FragmentActivity() {
-        @NonNull
-        @Override
-        public FragmentManager getSupportFragmentManager() {
-            return super.getSupportFragmentManager();
-        }
-    };
 
     class MyAdapter extends FragmentPagerAdapter implements Indicatorable.IconPageAdapter {
         String titles[] = getTitles();
